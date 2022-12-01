@@ -65,6 +65,14 @@ function createRamen(event) {
     const img = document.createElement('img')
     img.src = newRamen.image
     ramenMenu.append(img)
+    fetch(ramenHost, {
+        method: 'POSt',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(newRamen)
+    })
+    .then(res => res.json())
     img.addEventListener('click', event => handleRamen(newRamen))
 }
 
